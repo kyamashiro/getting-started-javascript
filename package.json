@@ -1,0 +1,23 @@
+{
+  "name": "getting-started-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyamashiro/getting-started-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyamashiro/getting-started-javascript/issues"
+  },
+  "homepage": "https://github.com/kyamashiro/getting-started-javascript#readme",
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "eslint-config-google": "^0.13.0"
+  }
+}
