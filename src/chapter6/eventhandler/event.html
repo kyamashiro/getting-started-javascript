@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function displayTime(){
+            let d = new Date();
+            console.log('現在、'+d.toLocaleString()+'です。');
+        }
+    </script>
+</head>
+<body>
+    // イベントハンドラ名:onclick 
+    <input type="button" value="click" onclick="displayTime()">
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function displayTime(){
+            let d = new Date();
+            console.log('現在、'+d.toLocaleString()+'です。');
+        }
+
+        // DOM操作
+        // window.onloadでページが読み込み終わったあとに実行する
+        window.onload = () => {
+            // idが'button'のinput要素のオブジェクトを取得
+            // 指定したidの要素がないとnullになる
+            const button = document.getElementById('button');
+            console.log(document.getElementById('none'));
+            // input要素のオブジェクトをクリックしたときのイベントハンドラを登録
+            // onclickをイベントハンドラプロパティという
+            button.onclick = displayTime;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="click" id="button">
+</body>
+</html>
