@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="640"></canvas>
+    <div>
+        中心座標(<span id="xc"></span>,<span id="yc"></span>)
+    </div>
+    <div>
+        <label for="magnification">倍率: <input type="number" value="0.65" id="magnification"></label>
+        <label for="maxit">最大繰り返し数: <input type="number" value="60" id="maxit"></label>
+        <input type="button" value="描写" id="button">
+    </div>
+    <script src="mandelbrot.js"></script>
+</body>
+</html>
