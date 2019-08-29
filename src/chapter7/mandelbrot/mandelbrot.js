@@ -1,36 +1,39 @@
 /* eslint-disable require-jsdoc */
 window.onload = () => {
   const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
   const width = canvas.width;
   const height = canvas.height;
-
-  let xc = -0.6;
-  const yc = 0;
-  draw();
 
   document.getElementById('button').onclick = draw;
 
   canvas.onclick = function(event) {
+    let xc = parseFloat(document.getElementById('xcenter').value);
+    let yc = parseFloat(document.getElementById('ycenter').value);
     const ix = event.offsetX;
     const iy = event.offsetY;
     const mag = parseFloat(document.getElementById('magnification').value);
     xc += (2 * ix / width -1) / mag;
-    yc +- (2 * iy - height) / mag / width;
-    draw();
+    yc += (2 * iy - height) / mag / width;
+    draw(xc, yc);
   };
-
-  function draw() {
-    const mag = document.getElementById('magnification').value;
-    const maxit = document.getElementById('maxit').value;
-    displayCenter(xc, yc);
-    mandelbrot(ctx, xc, yc, mag, maxit);
-  }
 };
 
+function draw() {
+  const xc = parseFloat(document.getElementById('xcenter').value);
+  const yc = parseFloat(document.getElementById('ycenter').value);
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  // 倍率
+  const mag = document.getElementById('magnification').value;
+  // 繰り返し数
+  const maxit = document.getElementById('maxit').value;
+  displayCenter(xc, yc);
+  mandelbrot(ctx, xc, yc, mag, maxit);
+}
+
 function displayCenter(xc, yc) {
-  document.getElementById('xc').innerHTML = xc.toFixed(3);
-  document.getElementById('yc').innerHTML = yc.toFixed(3);
+  document.getElementById('xc').innerHTML = xc;
+  document.getElementById('yc').innerHTML = yc;
 }
 
 function mandelbrot(canvas, xc, yc, mag, maxit) {
