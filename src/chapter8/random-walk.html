@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      function* randomWalk(c, x0, y0, d) {
+        let x = x0;
+        let y = y0;
+        c.strokeStyle = 'red';
+        c.globalAlpha = 0.25;
+        while (true) {
+          yield;
+          c.beginPath();
+          c.moveTo(x, y);
+          [x, y] = this.walk(x, y, d);
+          console.log(`x:${x} y:${y}`);
+          c.lineTo(x, y);
+          c.stroke();
+        }
+      }
+
+      function walk(x, y, d) {
+        const dx = [1, 0, -1, 0];
+        const dy = [0, 1, 0, -1];
+        const dir = Math.floor(Math.random() * 4);
+        x += d * dx[dir];
+        y += d * dy[dir];
+        return [x, y];
+      }
+
+      window.onload = () => {
+        const canvas = document.getElementById('mycanvas');
+        const ctx = canvas.getContext('2d');
+        const iter = randomWalk(ctx, 300, 300, 4, 'red');
+        setInterval(() => {
+          iter.next();
+        }, 1);
+      };
+    </script>
+  </head>
+  <body>
+    <canvas id="mycanvas" width="600" height="600" style="border: 1px solid gray"></canvas>
+  </body>
+</html>
